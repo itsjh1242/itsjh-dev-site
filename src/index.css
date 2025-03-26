@@ -7,9 +7,6 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400; /* Regular */
 }
 
 h1 {
@@ -52,6 +49,7 @@ h1 {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-_background text-_text-primary;
+    @apply font-body;
   }
 }

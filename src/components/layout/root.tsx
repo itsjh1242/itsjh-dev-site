@@ -1,10 +1,8 @@
 import { Outlet } from "react-router-dom";
-import { SideNav } from "./side-nav";
 
 export const RootLayout: React.FC = () => {
   return (
-    <main className="flex min-h-screen w-full bg-black">
-      <SideNav />
+    <main className="bg-_background flex min-h-screen w-full">
       <div className="flex-1">
         <Outlet />
       </div>
