@@ -1,5 +1,5 @@
 import { HomeAvatar } from "./avatar";
-import { HomeControlPannel } from "./control-pannel";
+import { HomeControlPanel } from "./control-panel";
 
 export const HomePage: React.FC = () => {
   return (
@@ -7,7 +7,7 @@ export const HomePage: React.FC = () => {
       {/* Avatar */}
       <HomeAvatar />
       {/* Control Pannel */}
-      <HomeControlPannel />
+      <HomeControlPanel />
     </section>
   );
 };
