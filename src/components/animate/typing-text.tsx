@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 type TypingTextProps = {
   text: string;
   speed?: number; // 타이핑 속도(ms)
+  delay?: number; // 타이핑 시작 지연(ms)
   cursor?: boolean;
   className?: string;
 };
@@ -11,27 +12,33 @@ type TypingTextProps = {
 export const TypingText = ({
   text,
   speed = 30,
+  delay = 0,
   cursor = false,
   className,
 }: TypingTextProps) => {
-  const [displayed, setDisplayed] = useState("");
+  const [displayed, setDisplayed] = useState(" ");
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     let i = 0;
-    setDisplayed(text[0] || "");
 
-    const typingInterval = setInterval(() => {
-      i++;
-      if (i >= text.length) {
-        clearInterval(typingInterval);
-        return;
-      }
-      setDisplayed((prev) => prev + text[i]);
-    }, speed);
+    const timeout = setTimeout(() => {
+      setDisplayed(text[0] || "");
 
-    return () => clearInterval(typingInterval);
-  }, [text, speed]);
+      const typingInterval = setInterval(() => {
+        i++;
+        if (i >= text.length) {
+          clearInterval(typingInterval);
+          return;
+        }
+        setDisplayed((prev) => prev + text[i]);
+      }, speed);
+    }, delay * 1000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [text, speed, delay]);
 
   useEffect(() => {
     if (!cursor) return;
