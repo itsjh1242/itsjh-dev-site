@@ -9,7 +9,7 @@ import { LucideIcon } from "lucide-react";
 export const HomeControlPanel: React.FC = () => {
   return (
     <>
-      <div className="flex min-h-[600px] w-[320px] flex-col rounded-lg border border-_border-strong_01 shadow-md shadow-_border-subtle_01">
+      <div className="flex min-h-[600px] w-[320px] flex-col rounded-lg border border-_border-strong_01 shadow-md shadow-_text-inverse">
         {/* Top of Panel: Basic Information */}
         <ControlPanelProfile />
         {/* Control Panel Items */}
@@ -33,10 +33,10 @@ export const HomeControlPanel: React.FC = () => {
 
 const ControlPanelProfile: React.FC = () => {
   return (
-    <div className="flex items-center space-x-3 bg-_background-hover p-3 shadow-md shadow-_border-subtle_01">
+    <div className="flex items-center space-x-3 bg-_background-hover p-3 shadow-md shadow-_text-inverse">
       <img src="/favicon.png" className="h-10 w-10" />
       <div className="flex flex-col justify-center">
-        <p className="text-xl font-bold">Kim Jun Hyeon</p>
+        <p className="text-base font-bold">Kim Jun Hyeon</p>
         <p className="text-xs text-_text-secondary">Daejeon, South Korea</p>
       </div>
     </div>

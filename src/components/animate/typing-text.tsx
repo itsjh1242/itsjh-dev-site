@@ -33,17 +33,16 @@ export const TypingText = ({
     return () => clearInterval(typingInterval);
   }, [text, speed]);
 
-  // 커서 깜빡임 효과
   useEffect(() => {
+    if (!cursor) return;
     const cursorInterval = setInterval(() => {
-      if (!cursor) return;
       setShowCursor((prev) => !prev);
-    }, 500); // 0.5초 간격으로 깜빡임
+    }, 500);
     return () => clearInterval(cursorInterval);
   }, [cursor]);
 
   return (
-    <motion.p
+    <motion.span
       className={`whitespace-pre-wrap text-sm transition ${className}`}
       key={text}
       initial={{ opacity: 0 }}
@@ -53,6 +52,6 @@ export const TypingText = ({
       {cursor && (
         <span className="inline-block w-[1ch]">{showCursor ? "|" : " "}</span>
       )}
-    </motion.p>
+    </motion.span>
   );
 };

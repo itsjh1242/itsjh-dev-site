@@ -6,7 +6,7 @@ export const HomeMessageBox: React.FC = () => {
   const { selected } = useHomeControlPanelStore();
   return (
     <>
-      <div className="bg-_background-primary w-[400px] rounded-md border-2 border-_background-active p-5 shadow-md shadow-_text-inverse">
+      <div className="bg-_background-primary w-[400px] rounded-md">
         <p className="break-keep text-sm">
           <TypingText
             text={CONTROL_PANEL_ITEMS[selected].description}

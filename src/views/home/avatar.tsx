@@ -1,42 +1,56 @@
 import { TypingText } from "@/components/animate/typing-text";
 import { CONTROL_PANEL_ITEMS } from "@/schemas/homeControlPanelSchema";
+import { QUICK_MENU_ITEMS } from "@/schemas/quickMenuSchema";
 import { useHomeControlPanelStore } from "@/stores/useHomeControlPanelStore";
 import { motion } from "framer-motion";
-import {
-  GripIcon,
-  PaintBucket,
-  PaintRollerIcon,
-  PencilIcon,
-  PenToolIcon,
-} from "lucide-react";
+import { GripIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { AvatarImage } from "./avatar-image";
 import { HomeMessageBox } from "./message-box";
 
 export const HomeAvatar: React.FC = () => {
+  const navigate = useNavigate();
   const { selected } = useHomeControlPanelStore();
 
   const primaryTextColor = CONTROL_PANEL_ITEMS[selected].primaryTextColor;
   const primaryBorderColor = CONTROL_PANEL_ITEMS[selected].primaryBorderColor;
   const primaryBgColor = CONTROL_PANEL_ITEMS[selected].primaryBgColor;
+
+  /**
+   * @description Quick Menu Item Click Handler
+   */
+  const handleQuickMenuItemClick = (link: string) => {
+    navigate(link);
+  };
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex min-h-[600px] flex-col justify-start">
         {/* Quick Menu Bar */}
         <div className="mb-5 flex items-center space-x-8 self-center rounded-sm bg-_background-active px-4 py-2 shadow-md shadow-_text-inverse">
           <GripIcon className="text-_icon-primary" />
           <div className="flex space-x-5">
-            {[PaintBucket, PaintRollerIcon, PenToolIcon, PencilIcon].map(
-              (Icon, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="cursor-pointer"
-                >
-                  <Icon className="text-_icon-primary" />
-                </motion.div>
-              ),
-            )}
+            {Object.keys(QUICK_MENU_ITEMS).map((key) => {
+              const { Icon } =
+                QUICK_MENU_ITEMS[key as keyof typeof QUICK_MENU_ITEMS];
+              return (
+                <div key={key} className="relative">
+                  {/* Label Above Icon */}
+                  <p
+                    className={`absolute -top-8 left-1/2 hidden -translate-x-1/2 border border-_border-strong_03 bg-_background-hover p-2 text-sm transition`}
+                  >
+                    {QUICK_MENU_ITEMS[key].title}
+                  </p>
+                  <div
+                    className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-md border-2 border-transparent transition hover:bg-_background-active`}
+                    onClick={() => {
+                      handleQuickMenuItemClick(QUICK_MENU_ITEMS[key].link);
+                    }}
+                  >
+                    <Icon className="text-_icon-primary" />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 

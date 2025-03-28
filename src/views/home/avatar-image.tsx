@@ -21,7 +21,7 @@ export const AvatarImage: React.FC = () => {
     <>
       {/* Head */}
       <motion.img
-        src={AVATAR_HEAD}
+        src={AVATAR_HEAD || undefined}
         alt="AVATAR_HEAD"
         className="absolute bottom-0 left-1/2 -translate-x-1/2"
         initial={fadeIn.initial}
@@ -30,7 +30,7 @@ export const AvatarImage: React.FC = () => {
       />
       {/* Ear - left */}
       <motion.img
-        src={avatar.ears[0]}
+        src={avatar.ears[0] || undefined}
         alt="AVATAR_EAR_LEFT"
         className="absolute bottom-1/2 left-[84px] z-50 -translate-x-1/2 translate-y-[12px]"
         initial={fadeIn.initial}
@@ -39,7 +39,7 @@ export const AvatarImage: React.FC = () => {
       />
       {/* Ear Ring */}
       <motion.img
-        src={avatar.earRing}
+        src={avatar.earRing || undefined}
         alt="AVATAR_EAR_RING_LEFT"
         className="absolute bottom-1/2 left-[84px] -translate-x-1/2 translate-y-[48px]"
         initial={fadeIn.initial}
@@ -48,7 +48,7 @@ export const AvatarImage: React.FC = () => {
       />
       {/* Eye Brows */}
       <motion.img
-        src={avatar.eyeBrows}
+        src={avatar.eyeBrows || undefined}
         alt="AVATAR_EYE_BROWS"
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-20"
         initial={fadeIn.initial}
@@ -57,7 +57,7 @@ export const AvatarImage: React.FC = () => {
       />
       {/* Eyes */}
       <motion.img
-        src={avatar.eyes}
+        src={avatar.eyes || undefined}
         alt="AVATAR_EYE"
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-16"
         initial={fadeIn.initial}
@@ -66,7 +66,7 @@ export const AvatarImage: React.FC = () => {
       />
       {/* Glasses */}
       <motion.img
-        src={avatar.glasses}
+        src={avatar.glasses || undefined}
         alt="AVATAR_GLASSES"
         className="absolute left-1/2 top-1/2 -translate-x-[90px] -translate-y-[84px]"
         initial={fadeIn.initial}
@@ -75,7 +75,7 @@ export const AvatarImage: React.FC = () => {
       />
       {/* Hair */}
       <motion.img
-        src={avatar.hair}
+        src={avatar.hair || undefined}
         alt="AVATAR_HAIR"
         className="absolute left-1/2 top-0 -translate-x-[131px] -translate-y-[14px]"
         initial={fadeIn.initial}
@@ -84,7 +84,7 @@ export const AvatarImage: React.FC = () => {
       />
       {/* Motuh */}
       <motion.img
-        src={avatar.mouth}
+        src={avatar.mouth || undefined}
         alt="AVATAR_MOUTH"
         className="absolute bottom-0 left-1/2 -translate-x-[20px] -translate-y-[72px]"
         initial={fadeIn.initial}
@@ -93,7 +93,7 @@ export const AvatarImage: React.FC = () => {
       />
       {/* Nose */}
       <motion.img
-        src={avatar.nose}
+        src={avatar.nose || undefined}
         alt="AVATAR_NOSE"
         className="absolute left-1/2 top-1/2 -translate-x-[0px] -translate-y-[20px]"
         initial={fadeIn.initial}
@@ -102,7 +102,7 @@ export const AvatarImage: React.FC = () => {
       />
       {/* Shirt */}
       <motion.img
-        src={avatar.shirt}
+        src={avatar.shirt || undefined}
         alt="AVATAR_SHIRT"
         className="absolute bottom-0 left-1/2 -translate-x-[144px] translate-y-[20px]"
         initial={fadeIn.initial}

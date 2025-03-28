@@ -14,6 +14,16 @@ h1 {
   font-weight: 700; /* Bold */
 }
 
+@layer utilities {
+  .clip-half-circle-bottom {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .clip-half-circle-top {
+    clip-path: inset(0 0 50% 0);
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
